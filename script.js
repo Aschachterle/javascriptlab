@@ -90,38 +90,116 @@
 //     else console.log(i);
 // }
 
-let play = prompt (`Would you like to play a game?`)
 
 let wins = 0
 let healthAdam = 40
 let healthGrant = 10
 
-if (play == "no") {
-    console.log (`Ok we will play another time`);
-}   else if (play == "yes") { 
-    let name = prompt("What is your name?");
-    console.log (`Health for ${name} is ${healthAdam} and health for Grant is ${healthGrant}`);
-    while (name === name) {
-        if (wins === 3) {
-            console.log (`${name} Wins`);
-            break;
-        }
-        else if (healthAdam <= 0) {
-            console.log (`Grant Wins`);
-            break;
-        }
-        else if (healthGrant <=0 && healthAdam > 0) {
-            healthGrant = 10;
-            wins ++;
-        }
-        else {
-            healthAdam -= Math.floor((Math.random() * 2) + 1);
-            healthGrant -= Math.floor((Math.random() * 2) + 1);
-            console.log (`${name} has ${healthAdam} health left`);
-            console.log (`Grant has ${healthGrant} health left`);
-        }
+playGame();
+
+
+function playGame() {
+    let play = prompt (`Would you like to play a game?`);
+    if (play == "no") {
+        console.log (`Ok we will play another time`);
+    }  else if (play == "yes") {
+        startCombat()
     }
-    console.log (`${name} won ${wins} rounds`);
+};
+
+function getDamage (Damage) {
+    return Math.floor((Math.random() * 5) + 1);
 }
+
+function startCombat() {
+    let name = prompt("What is your name?");
+    
+        while (name === name) {
+            let attack = prompt(`Would you like to attack (yes or quit)?`);
+            if (attack == `yes`) {
+                if (wins === 3) {
+                    console.log (`${name} Wins`);
+                    break;
+                }
+                else if (healthAdam <= 0) {
+                    console.log (`Grant Wins`);
+                    break;
+                }
+                else if (healthGrant <=0 && healthAdam > 0) {
+                    console.log (`${name} Wins this round!`)
+                    healthGrant = 10;
+                    wins ++;
+                }
+                else {
+                        healthAdam -= getDamage();
+                        healthGrant -= getDamage();
+                        console.log (`${name} has ${healthAdam} health left`);
+                        console.log (`Grant has ${healthGrant} health left`);
+                    }
+            }
+            else if (attack == `quit`) {
+            console.log (`Game Over`);
+            break;
+            }
+            else {
+            console.log (`Game Over`);
+            break;
+            }
+        }
+    
+}
+
+// let wins = 0
+// let healthAdam = 40
+// let healthGrant = 10
+
+// if (play == "no") {
+//     console.log (`Ok we will play another time`);
+// }   else if (play == "yes") { 
+//     let name = prompt("What is your name?");
+//     console.log (`Health for ${name} is ${healthAdam} and health for Grant is ${healthGrant}`);
+//     while (name === name) {
+//         if (wins === 3) {
+//             console.log (`${name} Wins`);
+//             break;
+//         }
+//         else if (healthAdam <= 0) {
+//             console.log (`Grant Wins`);
+//             break;
+//         }
+//         else if (healthGrant <=0 && healthAdam > 0) {
+//             healthGrant = 10;
+//             wins ++;
+//         }
+//         else {
+//             healthAdam -= Math.floor((Math.random() * 5) + 1);
+//             healthGrant -= Math.floor((Math.random() * 5) + 1);
+//             console.log (`${name} has ${healthAdam} health left`);
+//             console.log (`Grant has ${healthGrant} health left`);
+//         }
+//     }
+//     console.log (`${name} won ${wins} rounds`);
+// }
+
+
+
+// Fizzbuzz
+
+
+// for (let i=1; i < 101; i++) {
+//     if (i % 15 == 0) console.log("fizzbuzz");
+//     else if (i % 3 == 0) console.log("fizz");
+//     else if (i % 5 == 0) console.log("buzz");
+//     else console.log(i);
+// }
+
+// for (var i=1; i < 101; i++){
+//     if (i % 15 == 0) console.log("FizzBuzz");
+//     else if (i % 3 == 0) console.log("Fizz");
+//     else if (i % 5 == 0) console.log("Buzz");
+//     else console.log(i);
+// }
+
+
 
 
