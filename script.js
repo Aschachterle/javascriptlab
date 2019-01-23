@@ -93,7 +93,7 @@
 let play = prompt (`Would you like to play a game?`)
 
 let wins = 0
-let healthAdam = 40
+let healthAdam = 45
 let healthGrant = 10
 
 if (play == "no") {
@@ -123,7 +123,7 @@ if (play == "no") {
         
 
     }
-    console.log (`${name} won ${wins} times`);
+    console.log (`${name} won ${wins} rounds`);
 }
 
 
