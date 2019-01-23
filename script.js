@@ -93,7 +93,7 @@
 let play = prompt (`Would you like to play a game?`)
 
 let wins = 0
-let healthAdam = 30
+let healthAdam = 40
 let healthGrant = 10
 
 if (play == "no") {
@@ -106,7 +106,7 @@ if (play == "no") {
             console.log (`${name} Wins`);
             break;
         }
-        else if (healthGrant > healthAdam) {
+        else if (healthAdam <= 0) {
             console.log (`Grant Wins`);
             break;
         }
@@ -123,7 +123,7 @@ if (play == "no") {
         
 
     }
-    console.log (wins);
+    console.log (`${name} won ${wins} times`);
 }
 
 
