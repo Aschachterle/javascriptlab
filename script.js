@@ -93,27 +93,26 @@
 let play = prompt (`Would you like to play a game?`)
 
 let wins = 0
-let healthAdam = 20
+let healthAdam = 30
 let healthGrant = 10
 
 if (play == "no") {
     console.log (`Ok we will play another time`);
 }   else if (play == "yes") { 
     let name = prompt("What is your name?");
-    console.log (`Health for Adam is ${healthAdam} and health for Grant is ${healthGrant}`);
+    console.log (`Health for ${name} is ${healthAdam} and health for Grant is ${healthGrant}`);
     while (name === name) {
         if (wins === 3) {
-            console.log (`Adam Wins`);
+            console.log (`${name} Wins`);
             break;
         }
-        else if (healthGrant <= 0) {
-            console.log (`${name} Loses`);
+        else if (healthGrant > healthAdam) {
+            console.log (`Grant Wins`);
             break;
         }
         else if (healthGrant <=0 && healthAdam > 0) {
             healthGrant = 10;
             wins ++;
-            healthGrant = 10;
         }
         else {
             healthAdam -= Math.floor((Math.random() * 2) + 1);
@@ -124,7 +123,7 @@ if (play == "no") {
         
 
     }
+    console.log (wins);
 }
-
 
 
